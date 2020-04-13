@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Super Sprinter 3000</title>
+</head>
+<body>
+<h1>Super Sprinter 3000</h1>
+<a href="/story"> Add a new User Story </a><br><br>
+<table style="width:100%">
+  <tr>
+    {% for item in table_header %}
+      <th style="text-align: left">{{ item }}</th>
+    {% endfor %}
+  </tr>
+  {% for item in user_stories %}
+    <tr>
+        {% for data in item %}
+            {% if data == 'title' %}
+                <td><a href={{ '/story/' + item['id']}}>{{ item[data] }}</a></td>
+            {% else %}
+                <td>
+                    {{ item[data] }}
+                </td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+</body>
+
+</html>
